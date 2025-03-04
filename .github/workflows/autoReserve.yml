@@ -10,6 +10,8 @@ on:
       - '.github/workflows/**'
   schedule:
     - cron: '10 0,1 * * *'
+  pull_request:
+    branches: [ "master“ ]
 
 env:
   TZ: Asia/Shanghai
