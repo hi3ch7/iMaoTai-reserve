@@ -23,8 +23,6 @@ print(r'''
 **************************************
 ''')
 
-process.get_current_session_id()
-
 # 校验配置文件是否存在
 configs = login.config
 if len(configs.sections()) == 0:
@@ -47,6 +45,10 @@ for section in configs.sections():
     lat = configs.get(section, 'lat')
     lng = configs.get(section, 'lng')
 
+   # 为每个账号重新初始化headers和session
+    process.init_headers(user_id=userId, token=token, lng=lng, lat=lat)
+    process.get_current_session_id()
+  
     p_c_map, source_data = process.get_map(lat=lat, lng=lng)
 
     process.UserId = userId
