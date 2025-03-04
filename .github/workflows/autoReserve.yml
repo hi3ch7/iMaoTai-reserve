@@ -8,10 +8,11 @@ on:
     branches: [ "master" ]
     paths:
       - '.github/workflows/**'
+  pull_request:
+    branches: [ "master" ]
   schedule:
     - cron: '10 0,1 * * *'
-  pull_request:
-    branches: [ "master“ ]
+
 
 env:
   TZ: Asia/Shanghai
